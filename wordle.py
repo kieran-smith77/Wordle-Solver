@@ -47,7 +47,7 @@ def play(goal=None):
         if round > 7:
             if goal:
                 pass
-                # print(f'Failed match {goal}')
+                print(f'Failed match {goal}')
             else:
                 print('Sorry, we failed :(')
             return 7
@@ -62,13 +62,12 @@ def play(goal=None):
             print(word)
             resp = input()
         for pos in range(len(word)):
-            if word[pos] not in word[:pos]:
-                if resp[pos] == "0":
-                    x.remove(word[pos])
-                elif resp[pos] == "1":
-                    x.sweep(word[pos], pos)
-                elif resp[pos] == "2":
-                    x.fix(word[pos], pos)
+            if resp[pos] == "0":
+                x.remove(word[pos])
+            elif resp[pos] == "1":
+                x.sweep(word[pos], pos)
+            elif resp[pos] == "2":
+                x.fix(word[pos], pos)
         round +=1
 
     if resp == '22222':
